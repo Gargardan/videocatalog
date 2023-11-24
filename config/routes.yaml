@@ -1,0 +1,11 @@
+#controllers:
+#    resource:
+#        path: ../src/Input/
+#        namespace: App\Input
+#    type: attribute
+
+films:
+    path: /films
+    controller: App\Infrastructure\Input\ListFilmsController::list
+    format: json
+    methods: [post]

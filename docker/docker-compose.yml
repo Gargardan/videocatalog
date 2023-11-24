@@ -1,0 +1,17 @@
+version: '3'
+services:
+  php-videocatalog:
+    build: 
+      dockerfile: ./Dockerfile-php81.php
+      context: .      
+    container_name: php-videocatalog
+    restart: no
+    user: "1000:1000"
+    ports:
+      - "8000:8000"
+    environment:
+      - HOME:/home/user
+    volumes:
+      - ../:/var/www/html/      
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
