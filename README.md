@@ -45,7 +45,7 @@ Si no se especifica ningún payload devuelve el listado completo.
     "rating": [#criterio#, #int#]
 }
 ```
-Los campos *year*, *title* y *rating* son todos opciones. Cuándo se especifican deben ir acompañados de argumentos 
+Los campos *year*, *title* y *rating* son todos opcionales. Cuándo se especifican deben ir acompañados de argumentos 
 válidos.
 De acuerdo al enunciado, no todos los criterios de filtrado son válidos en todos los casos:
 
@@ -75,7 +75,7 @@ O bien mediante un script:
 cd bin
 ./films
 ```
-Este script solo llama al anterior pasándole toods los argumentos que reciba.
+Este script solo llama al anterior pasándole todos los argumentos que reciba.
 
 ### Argumentos
 
@@ -98,6 +98,8 @@ de la fuente de datos.
 
 La entrada recibida por la aplicación es distinta según el origen (http/cli), así que hago uso de unos *mappers* que validan
 y convierten la entrada del usuario en los datos del dominio.
+
+Además, procuro que los *controllers* cli y HTTP se encarguen solo lo que les corresponde: pasar la entrada del usuario a un mapper especídico y llamar a un service para obtener los datos.
 
 Defino una serie de *value objects* para aportar a la vez validación y seguridad de tipos.
 Uno de ellos es un FilmInfoList, que aporta validación al añadir, pero devuelve un array crudo (método get). 
